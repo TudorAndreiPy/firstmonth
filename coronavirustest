@@ -1,0 +1,126 @@
+import time
+import os
+
+# colectare e date
+prenume = str(input("Prenume*: "))
+nume = str(input("Nume*: "))
+varsta = int(input("Varsta*: "))
+mail = str(input("Mail(optional): "))
+
+
+
+print("1.Te simti obosit in aceasta perioada?")
+raspuns1 = input("Raspuns: ")
+
+print("---------------------------------------")
+
+print("2.Te doare in gat?")
+raspuns2 = input("Raspuns: ")
+
+print("---------------------------------------")
+
+print("3.Ai intrat in relatie cu persoane din alte tari?")
+raspuns3 = input("Raspuns: ")
+
+print("---------------------------------------")
+
+print("4.Te speli suficient de des pe maini?")
+raspuns4 = input("Raspuns: ")
+
+print("---------------------------------------")
+
+print("5.Respecti distanta sociala?")
+raspuns5 = input("Raspuns: ")
+
+print("---------------------------------------")
+
+time.sleep(1)
+for i in range(2):
+	print("")
+
+print("Raspunsurile dumneavoastra au fost duse spre analiza!")
+print("Iti multumim ca ai luat parte la chestionar! Pentru ca ne esti de folos, am decis sa iti oferim niste sfaturi!\n")
+
+print("")
+
+time.sleep(2)
+
+print("\n")
+print("1. Spălați-vă mâinile de multe ori")
+print("2.Evitați contactul cu persoane care sunt suspecte de infecții respiratorii acute")
+print("3. Nu vă atingeți ochii, nasul și gura cu mâinile")
+print("4. Acoperiți-vă gura și nasul dacă strănutați sau tușiți")
+print("5. Curățați toate suprafețele cu dezinfectanți pe bază de clor sau alcool")
+
+for i in range(3):
+	print(" ")
+
+print("Apasa orice pentru a inchide chestionarul")
+
+for i in range(7):
+	print(" ")
+os.system("pause")
+
+
+# scriere in format .txt
+file =  open("database.txt", 'a')
+
+# prenume
+if prenume == '':
+	file.write('Prenumele este : fara prenume''\n')
+else:
+	file.write('Prenumele este : ' + prenume + '\n')
+
+
+# nume
+if nume == '':
+	file.write('Numele este : fara nume' '\n')
+
+# varsta este neaparat unn numar deci nu este nevoie sa dau alte explicatii 
+file.write('Varsta este : ' + str(varsta) + '\n')
+
+
+
+# mail
+if mail == '':
+	file.write('Adresa de mail este: fara adresa' + '\n')
+
+else: 
+	file.write('Adresa de mail este: ' + mail + '\n')
+
+
+# intrebarea 1
+if raspuns1 == '':
+	file.write('Se simte obosit? Raspuns: refuza sa raspunda '+'\n')
+else:
+	file.write('Se simte obosit? Raspuns:  ' + raspuns1 + '\n')
+
+# intrebarea 2
+if raspuns2 == '':
+	file.write('Te doare in gat? Raspuns: refuza sa raspunda '+ '\n')
+else:
+	file.write('Te doare in gat? Raspuns:  ' + raspuns2 + '\n')
+
+# intrebarea 3
+if raspuns3 == '':
+	file.write('Ai intrat in relatie cu persoane din alte tari? Raspuns: refuza sa raspunda ' + '\n')
+else:
+	file.write('Ai intrat in relatie cu persoane din alte tari? Raspuns:  ' + raspuns3 + '\n')
+
+# intrebarea 4
+if raspuns4 == '':
+	file.write('Te speli suficient de des pe maini? Raspuns: refuza sa raspunda ' + '\n')
+else: 
+	file.write('Te speli suficient de des pe maini? Raspuns:  ' + raspuns4 + '\n')
+
+# intrebarea 5
+if raspuns5 == '':
+	file.write('Respecti distanta sociala? Raspuns: refuza sa raspunda ' + '\n')
+else:
+	file.write('Respecti distanta sociala? Raspuns:  ' + raspuns5 + '\n')
+
+
+
+file.write('\n')
+
+file.close()
