@@ -1,0 +1,252 @@
+from tkinter import *
+from tkinter import messagebox
+
+def mediaaniilor():
+	# config pentru window
+	root = Tk()
+	root.title("Calculator medie a anilor de gimnaziu")
+	root.geometry("+255+50")
+	root.configure(bg = '#97d369')
+	####################################################
+	# Titlul
+	titlu = Label(root, text = "Media aniilor de gimnaziu", bg = '#97d369')
+	titlu.config(font=("Arial 15 bold"))
+	titlu.grid(row = 0, column = 0, pady = 10)
+
+	#####################################################
+	# Clase
+
+	# TOT PENTRU CLASA A V A
+	clasa5 = Label(root, text = "Medie clasa a-V-a:", bg = '#97d369')
+	clasa5.config(font=("Arial 13 bold"))
+	clasa5.grid(row = 2, column = 0)
+
+	mediecls5 = Entry(root, width = 45, borderwidth = 0, bg = 'white', fg = 'black')
+	mediecls5.grid(row = 3, column = 0)
+
+	spatiu_sub_mediecls5 = Label(root, text = '', bg = '#97d369')
+	spatiu_sub_mediecls5.grid(row = 4, column = 0)
+
+
+	# TOT PENTRU CLASA A VI A
+	clasa6 = Label(root, text = "Medie clasa a-VI-a:", bg = '#97d369')
+	clasa6.config(font=("Arial 13 bold"))
+	clasa6.grid(row = 5, column = 0)
+
+	mediecls6 = Entry(root, width = 45, borderwidth = 0, bg = 'white', fg = 'black')
+	mediecls6.grid(row = 6, column = 0)
+
+	spatiu_sub_mediecls6 = Label(root, text = '', bg = '#97d369')
+	spatiu_sub_mediecls6.grid(row = 7, column = 0)
+
+	# TOT PENTRU CLASA A VII A
+	clasa7 = Label(root, text = "Medie clasa a-VII-a:", bg = '#97d369')
+	clasa7.config(font=("Arial 13 bold"))
+	clasa7.grid(row = 8, column = 0)
+
+	mediecls7 = Entry(root, width = 45, borderwidth = 0, bg = 'white', fg = 'black')
+	mediecls7.grid(row = 9, column = 0)
+
+	spatiu_sub_mediecls7 = Label(root, text = '', bg = '#97d369')
+	spatiu_sub_mediecls7.grid(row = 10, column = 0)
+
+	# TOT PENTRU CLASA A VIII A
+	clasa8 = Label(root, text = "Medie clasa a-VIII-a:", bg = '#97d369')
+	clasa8.config(font=("Arial 13 bold"))
+	clasa8.grid(row = 11, column = 0)
+
+	mediecls8 = Entry(root, width = 45, borderwidth = 0, bg = 'white', fg = 'black')
+	mediecls8.grid(row = 12, column = 0, padx = 10)
+
+	spatiu_sub_mediecls8 = Label(root, text = '', bg = '#97d369')
+	spatiu_sub_mediecls8.grid(row = 13, column = 0)
+
+	###########################################################
+
+	def calculgim():
+		# creem algoritmul care afla media de gimnaziu
+		mediaclasei5 = float(mediecls5.get())
+		mediaclasei6 = float(mediecls6.get())
+		mediaclasei7 = float(mediecls7.get())
+		mediaclasei8 = float(mediecls8.get())
+
+		def popup():
+			messagebox.showerror("Eroare", "Numarul este gresit")
+
+		if mediaclasei5 > 10:
+			popup()
+			root.destroy()
+
+		if mediaclasei6 > 10:
+			popup()
+			root.destroy()
+
+		if mediaclasei7 > 10:
+			popup()
+			root.destroy()
+
+		if mediaclasei8 > 10:
+			popup()
+			root.destroy()
+
+		media_gimnaziu = (mediaclasei5 + mediaclasei6 + mediaclasei7 + mediaclasei8)/4
+
+		afisare_medie = Label(root, text = f"Media este %.2f" % media_gimnaziu, bg = '#97d369')
+		afisare_medie.config(font=("Arial 13 bold"))
+		afisare_medie.grid(row = 16)
+
+	butonpentrugim = Button(root, text = "Pentru medie", font = ("Arial 11 bold"),  command = calculgim)
+	butonpentrugim.grid(row = 14)
+
+	spatiu_sub_buttonptgim = Label(root, text = '', bg = '#97d369')
+	spatiu_sub_buttonptgim.grid(row = 15, column = 0)
+
+
+
+def all():
+	root = Tk()
+	root.title("Calculator M.A.")
+	root.geometry("+550+50")
+	root.configure(bg = '#97d369')
+
+	def quit():
+		root.destroy()
+
+
+	# LUCRU PENTRU TITLUL APLICATIEI
+	spatiu_peste_titlu = Label(root, text = " ", bg = "#97d369")
+	spatiu_peste_titlu.grid(row = 0, column = 0)
+
+	titlul = Label(root, text = "Calculator medie admitere", bg = "#97d369")
+	titlul.grid(row = 1, column = 0, columnspan = 1, padx = 5)
+	titlul.config(font=("Arial 17 bold"))
+
+	spatiu_sub_titlu = Label(root, text = " " , bg = "#97d369")
+	spatiu_sub_titlu.grid(row = 2, column = 0)
+
+	medie58lbl = Label(root, text = "Media aniilor de gimnaziu" , bg = '#97d369')
+	medie58lbl.config(font=("Arial 15 bold"))
+	medie58lbl.grid(row = 3)
+
+	entmedie58 = Entry(root, width = 45, borderwidth = 0, bg = 'white', fg = 'black')
+	entmedie58.grid(row = 4, column = 0 , padx = 10)
+
+	nucunosc = Label(root, text = "Nu stii ce medie ai?", bg = '#97d369')
+	nucunosc.config(font=("Arial 13 bold"))
+	nucunosc.grid(row = 5, column = 0)
+
+	nucunbut = Button(root, text = "Click aici", font = ("Arial 11 bold") , command = mediaaniilor)
+	nucunbut.grid(row = 6, column = 0)
+
+	spatiu_sub_gimn = Label(root, text = " " , bg = "#97d369")
+	spatiu_sub_gimn.grid(row = 7, column = 0)
+
+
+
+	# LUCRU PENTRU TITLUL AL DOILEA AL APLICATIEI 
+	note_examen_titlu = Label(root, text = "Note examen" , bg = '#97d369')
+	note_examen_titlu.config(font=("Arial 17 bold"))
+	note_examen_titlu.grid(row = 8, column = 0)
+
+	# MATEMATICA EV.N.
+	# spatiu_sub_titlu2 = Label(root, text = '', bg = '#97d369')
+	# spatiu_sub_titlu2.grid(row = 9)
+
+	matematica_titlu = Label(root, text = 'Matematica', bg = '#97d369')
+	matematica_titlu.config(font=("Arial 15 bold"))
+	matematica_titlu.grid(row = 10)
+
+	matematica = Entry(root, width = 45, borderwidth = 0, bg = 'white', fg = 'black')
+	matematica.grid(row = 11, column = 0)
+
+	spatiu_sub_mate = Label(root, text = ' ', bg = '#97d369')
+	spatiu_sub_mate.grid(row = 12)
+
+	# ROMANA
+	romana_titlu = Label(root, text = 'Limba si literatura romana', bg = '#97d369')
+	romana_titlu.config(font=("Arial 15 bold"))
+	romana_titlu.grid(row = 13)
+
+	romanaent = Entry(root, width = 45, borderwidth = 0, bg = 'white', fg = 'black')
+	romanaent.grid(row = 14, column = 0)
+
+	spatiu_sub_romana = Label(root, text = ' ', bg = '#97d369')
+	spatiu_sub_romana.grid(row = 15)
+
+	###################################################################
+
+	# ALGORITMII CALCULATORULUI DE MEDIE
+	def calcul():
+		def popup():
+			a = "Numarul este gresit"
+			messagebox.showerror("Eroare", a)
+
+		matematicanota = float(matematica.get())
+		if matematicanota > 10:
+			popup()
+			root.destroy()
+			
+
+		romananota = float(romanaent.get())
+		if romananota > 10:
+			popup()
+			root.destroy()
+
+		medie58 = float(entmedie58.get())
+		if medie58 > 10:
+			popup()
+			root.destroy()
+
+		
+		# medie evaluare
+		medie_evaluare = (matematicanota + romananota)/2
+
+		# medie admitere
+		medie_admitere = medie58 * 0.2 + medie_evaluare * 0.8
+
+
+		
+
+		raspuns = Label(root, text = f"Media de admitere este %.2f" % medie_admitere , bg = '#97d369')
+		raspuns.config(font=("Arial 15 bold"))
+		raspuns.grid(row = 27)
+
+		if 5 <	medie_admitere < 10 :
+			reactie = Label(root, text = "Felicitari pentru nota obtinuta!" , bg = '#97d369')
+			reactie.config(font=("Arial 13 bold"))
+			reactie.grid(row = 28)
+
+		if medie_admitere < 5:
+			reactie = Label(root, text = "Treci la invatat, lenesule!!" , bg = '#97d369')
+			reactie.config(font=("Arial 13 bold"))
+			reactie.grid(row = 28)
+
+		if medie_admitere == 10 :
+			reactie = Label(root, text = "     Bravo, ai scos 2000 lei!     " , bg = '#97d369')
+			reactie.config(font=("Arial 13 bold"))
+			reactie.grid(row = 28)
+
+		again = Button(root, text = "Repeta" , command = all , bg = 'yellow', font = ("Arial 13 bold"))
+		again.grid(row = 25)
+
+		spatiu_sub_buton = Label(root, text = '', bg = '#97d369')
+		spatiu_sub_buton.grid(row = 26)
+
+		spatiugol = Label(root, text = "" , bg = '#97d369')
+		spatiugol.config(font=("Arial 13 bold"))
+		spatiugol.grid(row = 29)
+
+
+
+	###################################################################
+
+	# BUTTON PENTRU REZULTAT
+	enter = Button(root, text = 'Arata media!', bg = '#80bfff' , font = ("Arial 11 bold"),  command = calcul)
+	enter.grid(row = 23, pady = 5)
+
+
+
+	root.resizable(False, False)
+	root.mainloop()
+
+all()
