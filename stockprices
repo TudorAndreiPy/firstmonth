@@ -1,0 +1,107 @@
+import bs4 #import beautiful soup 4
+import requests #import request
+from bs4 import BeautifulSoup # import BeautifulSoup
+import time # import time for time.sleep()
+
+#---------Facebook--------#
+def facebookprice():
+	def facebook():
+		link = requests.get('https://finance.yahoo.com/quote/FB?p=FB&.tsrc=fin-srch')#link for facebook stock price
+		soup = bs4.BeautifulSoup(link.text, "lxml") 
+		price = soup.find_all('div', {'class' : 'My(6px) Pos(r) smartphone_Mt(6px)'})[0].find('span').text #here i take the price
+		print("One Facebook stock is " , price, "$")
+
+	while True:
+		facebook()
+
+#---------BTC--------#
+def bitcoinprice():
+	def bitcoin():
+		link = requests.get('https://finance.yahoo.com/quote/BTC-USD?p=BTC-USD&.tsrc=fin-srch')# link for bitcoin stock price
+		soup = bs4.BeautifulSoup(link.text, "lxml")
+		price = soup.find_all('div', {'class' : 'D(ib) smartphone_Mb(10px) W(70%) W(100%)--mobp smartphone_Mt(6px)'})[0].find('span').text # here i take the price for bitcoin
+		print("1 Bitcoin is " , price , "$")
+
+	while True:
+		bitcoin()
+
+#---------ETH--------#
+def ethprice():
+	def eth():
+		link = requests.get('https://finance.yahoo.com/quote/ETH-USD?p=ETH-USD&.tsrc=fin-srch')# link for bitcoin stock price
+		soup = bs4.BeautifulSoup(link.text, "lxml")
+		price = soup.find_all('div', {'class' : 'D(ib) smartphone_Mb(10px) W(70%) W(100%)--mobp smartphone_Mt(6px)'})[0].find('span').text # here i take the price for bitcoin
+		print("1 Etherum is " , price , "$")
+
+	while True:
+		eth()
+
+#---------XRP--------#
+def xrpprice():
+	def xrp():
+		link = requests.get('https://finance.yahoo.com/quote/ETH-USD?p=ETH-USD&.tsrc=fin-srch')# link for bitcoin stock price
+		soup = bs4.BeautifulSoup(link.text, "lxml")
+		price = soup.find_all('div', {'class' : 'D(ib) smartphone_Mb(10px) W(70%) W(100%)--mobp smartphone_Mt(6px)'})[0].find('span').text # here i take the price for bitcoin
+		print("1 Ripple is " , price , "$")
+
+	while True:
+		xrp()
+
+#---------LTC--------#
+def ltcprice():
+	def ltc():
+		link = requests.get('https://finance.yahoo.com/quote/LTC-USD?p=LTC-USD&.tsrc=fin-srch')# link for bitcoin stock price
+		soup = bs4.BeautifulSoup(link.text, "lxml")
+		price = soup.find_all('div', {'class' : 'D(ib) smartphone_Mb(10px) W(70%) W(100%)--mobp smartphone_Mt(6px)'})[0].find('span').text # here i take the price for bitcoin
+		print("1 Litecoin is " , price , "$")
+
+	while True:
+		ltc()
+
+
+#---------AAPL--------#
+def appleprice():
+	def apple():
+		link = requests.get('https://finance.yahoo.com/quote/AAPL?p=AAPL&.tsrc=fin-srch')# link for bitcoin stock price
+		soup = bs4.BeautifulSoup(link.text, "lxml")
+		price = soup.find_all('div', {'class' : 'My(6px) Pos(r) smartphone_Mt(6px)'})[0].find('span').text # here i take the price for bitcoin
+		print("One Apple stock is " , price , "$")
+
+	while True:
+		apple()
+
+
+
+print("Hello, my name is Tudor and here you can discover stocks prices!")
+time.sleep(1)
+print(" 1 for Facebook price")
+print(" 2 for Bitcoin price")
+print(" 3 for Etherum price")
+print(" 4 for Ripple price")
+print(" 5 for Litecoin price")
+print(" 6 for APPLE PRICE")
+
+
+number  = int(input("Entry the number here: "))
+
+if number == 1 :
+	facebookprice()
+
+if number == 2:
+	bitcoinprice()
+
+if number == 3:
+	ethprice()
+
+if number == 4:
+	xrpprice()
+
+if number == 5:
+	ltcprice()
+
+if number == 6:
+	appleprice()
+
+
+else:
+	print("Error")
